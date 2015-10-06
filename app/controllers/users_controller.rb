@@ -38,8 +38,10 @@ class UsersController < ApplicationController
       end
     end
   rescue => e
-    p "ここはどうかな？"
+    # この箇所で、止まるようになっている。
     binding.pry
+    # ここで、e.messageを打つと、validationのメッセージがカンマ区切りで連結されるのだが、このカンマをなくすエレガントな方法はあるのだろうか。
+    # 例）Validation failed: Name 名前が規定文字数の中に入っていません, Email Eメールが規定文字数の中に入っていません
     @e_message = e.message
   end
 
